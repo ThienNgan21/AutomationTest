@@ -19,21 +19,24 @@ The test scripts are written in Java and target the OrangeHRM demo site:
 - **IDE:** NetBeans 
 
 ## Project Structure
+```bash
 AutomationTest/
-│
 ├── src/
-│   ├── main/
-│   │   └── java/
-│   └── test/
+│   └── main/
 │       └── java/
-│           └── com.ngan.automation.tests/
-│               ├── BaseTest.java
-│               ├── LoginFailureTest.java
-│               ├── LoginSuccessTest.java
-│               └── LogoutTest.java
-│
+├── test/
+│   └── java/
+│       └── com/
+│           └── ngan/
+│               └── automation/
+│                   └── tests/
+│                       ├── BaseTest.java
+│                       ├── LoginFailureTest.java
+│                       ├── LoginSuccessTest.java
+│                       └── LogoutTest.java
 ├── pom.xml
 └── README.md
+```
 
 ##️ Getting Started
 
@@ -46,6 +49,7 @@ AutomationTest/
 ### How to run the tests
 ```bash
 mvn clean test
+```
 
 ## Author
 **Chu Lê Thiên Ngân**  
