@@ -7,20 +7,19 @@ package com.ngan.automation.tests;
 import com.ngan.automation.pages.LoginPage;
 import org.junit.Assert;
 import org.junit.Test;
-
 /**
  *
  * @author hp
  */
-public class LoginFailureTest extends BaseTest{
-    
+public class InvalidPasswordTest extends BaseTest {
     @Test
-    public void testInvalidLogin() {
+    public void testInvalidPassword() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open();
-        loginPage.login("wrongUser", "wrongPass");
+        loginPage.login("Admin", "wrongPassword");
 
         String errorMessage = loginPage.getInvalidMessage();
-        Assert.assertTrue("Error message should appear", errorMessage.contains("Invalid credentials"));
-    }     
+        Assert.assertTrue("Error message should show invalid credentials",
+                errorMessage.contains("Invalid credentials"));
+    }
 }

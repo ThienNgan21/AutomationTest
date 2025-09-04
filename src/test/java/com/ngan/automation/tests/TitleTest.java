@@ -8,19 +8,14 @@ import com.ngan.automation.pages.LoginPage;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- *
- * @author hp
- */
-public class LoginFailureTest extends BaseTest{
-    
+public class TitleTest extends BaseTest {
+
     @Test
-    public void testInvalidLogin() {
+    public void testLoginPageTitle() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open();
-        loginPage.login("wrongUser", "wrongPass");
 
-        String errorMessage = loginPage.getInvalidMessage();
-        Assert.assertTrue("Error message should appear", errorMessage.contains("Invalid credentials"));
-    }     
+        String title = driver.getTitle();
+        Assert.assertTrue("Title should contain 'OrangeHRM'", title.contains("OrangeHRM"));
+    }
 }

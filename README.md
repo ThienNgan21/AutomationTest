@@ -8,7 +8,10 @@ The test scripts are written in Java and target the OrangeHRM demo site:
 
 - Login functionality  
 - Logout functionality  
-- (Upcoming) Add user, edit user, delete user  
+- Employee management (Add, Edit, Delete)  
+- URL navigation verification  
+- Page title verification  
+- Invalid login scenarios (empty credentials, wrong password, etc.)
 
 ## Tech Stack
 
@@ -24,6 +27,14 @@ AutomationTest/
 ├── src/
 │   └── main/
 │       └── java/
+│           └── com/
+│               └── ngan/
+│                   └── automation/
+│                       └── pages/
+│                           ├── BasePage.java
+│                           ├── LoginPage.java
+│                           ├── EmployeePage.java
+│                           └── DashboardPage.java
 ├── test/
 │   └── java/
 │       └── com/
@@ -33,7 +44,12 @@ AutomationTest/
 │                       ├── BaseTest.java
 │                       ├── LoginFailureTest.java
 │                       ├── LoginSuccessTest.java
-│                       └── LogoutTest.java
+│                       ├── LogoutTest.java
+│                       ├── InvalidPasswordTest.java
+│                       ├── EmptyLoginTest.java
+│                       ├── TitleTest.java
+│                       ├── UrlNavigationTest.java
+│                       └── EmployeeTest.java
 ├── pom.xml
 └── README.md
 ```

@@ -5,10 +5,9 @@
 package com.ngan.automation.tests;
 
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import static org.junit.Assert.assertTrue;
-import org.openqa.selenium.WebElement;
+import com.ngan.automation.pages.LoginPage;
+import com.ngan.automation.pages.DashboardPage;
+import org.junit.Assert;
 
 /**
  *
@@ -17,15 +16,12 @@ import org.openqa.selenium.WebElement;
 public class LoginSuccessTest extends BaseTest {
     
     @Test
-    public void testLoginSuccess() {
-       
-        login("Admin","admin123");
-        
-        WebElement dashboardHeader = wait.until(
-            ExpectedConditions.visibilityOfElementLocated(By.xpath("//h6[text()='Dashboard']"))
-        );
-        
-        String headerText = dashboardHeader.getText();
-        assertTrue("Không vào được Dashboard!", headerText.contains("Dashboard"));
-    }   
+    public void testValidLogin() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.open();
+        loginPage.login("Admin", "admin123");
+
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        Assert.assertTrue("Dashboard should be displayed", dashboardPage.isDashboardDisplayed());
+    }
 }

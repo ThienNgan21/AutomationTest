@@ -12,15 +12,15 @@ import org.junit.Test;
  *
  * @author hp
  */
-public class LoginFailureTest extends BaseTest{
-    
+public class EmptyLoginTest extends BaseTest{
     @Test
-    public void testInvalidLogin() {
+    public void testEmptyLogin() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open();
-        loginPage.login("wrongUser", "wrongPass");
+        loginPage.login("", "");  // Bỏ trống cả username & password
 
-        String errorMessage = loginPage.getInvalidMessage();
-        Assert.assertTrue("Error message should appear", errorMessage.contains("Invalid credentials"));
-    }     
+        // Kiểm tra "Required" message
+        String message = loginPage.getRequiredMessage();
+        Assert.assertEquals("Required", message);
+    }
 }

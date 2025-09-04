@@ -4,33 +4,29 @@
  */
 package com.ngan.automation.tests;
 
-import org.junit.Test;
 import com.ngan.automation.pages.LoginPage;
 import com.ngan.automation.pages.DashboardPage;
 import org.junit.Assert;
+import org.junit.Test;
 
 /**
  *
  * @author hp
  */
-public class LogoutTest extends BaseTest{
+public class UrlNavigationTest extends BaseTest{
     
     @Test
-    public void testLogout() {
-        // Login first
+    public void testDashboardUrl() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open();
         loginPage.login("Admin", "admin123");
 
         DashboardPage dashboardPage = new DashboardPage(driver);
-        Assert.assertTrue("Dashboard should be displayed", dashboardPage.isDashboardDisplayed());
+        Assert.assertTrue("Dashboard should be visible", dashboardPage.isDashboardDisplayed());
 
-        // Logout
-        dashboardPage.logout();
-
-        // Check đã quay lại trang login
-        Assert.assertTrue("Login page should be displayed after logout", 
-            driver.getCurrentUrl().contains("login"));
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertTrue("URL should contain 'dashboard'", currentUrl.contains("dashboard"));
     }
+    
     
 }
